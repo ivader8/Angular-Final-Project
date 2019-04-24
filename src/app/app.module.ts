@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -11,11 +11,15 @@ import { SigninComponent } from './authentication/signin/signin.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './services/auth/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateProductComponent } from './components/products/create-product/create-product.component';
 import { ProductComponent } from './components/products/product/product.component';
 import { ProductsAllComponent } from './components/products/products-all/products-all.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { JwtInterceptorService } from './services/interceptors/jwt-interceptor.service';
+import { DropdownDirective } from './components/navigation/dropdown.directive';
+import { CollapseDirective } from './components/navigation/collapse.directive';
+import { ProductsUserComponent } from './components/products/products-user/products-user.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +31,13 @@ import { ProductDetailsComponent } from './components/products/product-details/p
     CreateProductComponent,
     ProductComponent,
     ProductsAllComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    DropdownDirective,
+    CollapseDirective,
+    ProductsUserComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -37,7 +45,12 @@ import { ProductDetailsComponent } from './components/products/product-details/p
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthService],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,
+  useClass:JwtInterceptorService,
+multi:true},
+AuthService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

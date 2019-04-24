@@ -1,10 +1,10 @@
 export interface Product {
     _id: string;
-    make: string;
-    model: string;
+    title: string;
+    type: string;
     year: number;
     description: string;
     price: number;
     image: string;
-    material: string;
+    
 }

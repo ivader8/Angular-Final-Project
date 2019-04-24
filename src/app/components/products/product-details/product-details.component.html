@@ -1,3 +1,25 @@
-<p>
-  product-details works!
-</p>
+<div class="container">
+  <div class="row space-top">
+      <div class="col-md-12">
+          <h1>Product Details</h1>
+      </div>
+  </div>
+  <div class="row space-top">
+      <div class="col-md-4">
+          <div class="card text-white bg-primary">
+              <div class="card-body">
+                  <blockquote class="card-blockquote">
+                      <img src="{{product.image}}" />
+                  </blockquote>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <p>Title: {{product.title}}</p>
+          <p>Type: {{product.type}}</p>
+          <p>Year: {{product.year}}</p>
+          <p>Description: {{product.description}}</p>
+          <p>Price: {{product.price}}</p>
+      </div>
+  </div>
+</div>
