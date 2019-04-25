@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 
-const CREATE_URL = 'http://localhost:5000/product/create';
-const ALL_URL = 'http://localhost:5000/product/all';
-const DETAILS_URL = 'http://localhost:5000/product/details/';
-const USER_URL = 'http://localhost:5000/product/user';
-const DELETE_URL = 'http://localhost:5000/product/delete/';
+const CREATE_URL = 'http://localhost:5000/furniture/create';
+const ALL_URL = 'http://localhost:5000/furniture/all';
+const DETAILS_URL = 'http://localhost:5000/furniture/details/';
+const USER_URL = 'http://localhost:5000/furniture/user';
+const DELETE_URL = 'http://localhost:5000/furniture/delete/';
 
 @Injectable({
   providedIn: 'root'
@@ -16,23 +16,23 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  createProduct(data) {
+  createFurniture(data) {
     return this.http.post<Product>(CREATE_URL, data);
   }
 
-  getAllProducts(): Observable<Product[]> {
+  getAllFurnitures(): Observable<Product[]> {
     return this.http.get<Product[]>(ALL_URL);
   }
 
-  getProduct(id: string): Observable<Product> {
+  getFurniture(id: string): Observable<Product> {
     return this.http.get<Product>(DETAILS_URL + id);
   }
 
-  getUserProduct(): Observable<Product[]> {
+  getUserFurniture(): Observable<Product[]> {
     return this.http.get<Product[]>(USER_URL);
   }
 
-  deleteProduct(id: string) {
+  deleteFurniture(id: string) {
     return this.http.delete(DELETE_URL + id);
   }
 
