@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![Capture](https://user-images.githubusercontent.com/29041211/56734082-98d80900-676a-11e9-8125-29669aa61c21.JPG)
 
+## Backend server
+Make sure you have MongoDB installed on your device. Navigate to the Server folder and run "npm install". Afterwards start the server by executing the command "node index"
 
 ## Development server
 
